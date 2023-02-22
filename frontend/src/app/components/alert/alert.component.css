@@ -1,0 +1,21 @@
+.alert {
+  background: rgba(0,0,0,0.04);
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.cross {
+  background-color: var(--color-text-secondary);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.cross::before {
+  content: 'x';
+  color: #fff;
+  font-weight: 300;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 4px;
+}

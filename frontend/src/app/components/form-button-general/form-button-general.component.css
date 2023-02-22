@@ -1,0 +1,4 @@
+input[type=button]:hover {
+  background: var(--color-text-secondary-hover);
+}
+

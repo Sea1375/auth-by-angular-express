@@ -1,0 +1,119 @@
+<div class="flex min-h-screen bg-primary">
+  <div class="absolute top-16 left-16">
+    <a [routerLink]="['/']">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+           stroke-linejoin="round" class="Products_products__list__item__icon__W22sh" height="32px" width="32px"
+           xmlns="http://www.w3.org/2000/svg">
+        <line x1="12" y1="2" x2="12" y2="6"></line>
+        <line x1="12" y1="18" x2="12" y2="22"></line>
+        <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+        <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+        <line x1="2" y1="12" x2="6" y2="12"></line>
+        <line x1="18" y1="12" x2="22" y2="12"></line>
+        <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+        <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+      </svg>
+    </a>
+  </div>
+  <div class="w-full lg:w-3/6 px-10 py-10 flex justify-center items-center bg-secondary border-rounded-right">
+    <div class="w-96">
+      <h3 class="text-3xl font-bold text-center my-4">{{'HOME.SIGNUP' | translate}}</h3>
+      <h6 class="text-sm mt-3 mb-8 text-center">{{'HOME.SIGNUP_DES' | translate}}</h6>
+
+      <div class="mt-1.5">
+        <app-form-input
+          [type]="'text'"
+          [placeholder]="'HOME.USERNAME'"
+          [regx]="settings.REGX_FILL"
+          (onChangeEvent)="onChangeUsername($event)"
+        ></app-form-input>
+      </div>
+
+      <div class="mt-3">
+        <app-form-input
+          [type]="'text'"
+          [placeholder]="'HOME.EMAIL'"
+          [regx]="settings.REGX_EMAIL"
+          (onChangeEvent)="onChangeEmail($event)"
+        ></app-form-input>
+      </div>
+
+      <div class="mt-3">
+        <app-form-input
+          [type]="'password'"
+          [placeholder]="'HOME.PASSWORD'"
+          [regx]="settings.REGX_PWD"
+          (onChangeEvent)="onChangePassword($event)"
+        ></app-form-input>
+      </div>
+
+      <div class="mt-3">
+        <app-form-input
+          [type]="'password'"
+          [placeholder]="'HOME.PASSWORD_CONFIRM'"
+          [regx]="settings.REGX_PWD"
+          (onChangeEvent)="onChangePasswordConfirm($event)"
+        ></app-form-input>
+      </div>
+
+      <div class="mt-5">
+        <app-form-checkbox-terms
+          (onClickEvent)="onCheckedTerms($event)"
+        ></app-form-checkbox-terms>
+      </div>
+
+      <div class="mt-3.5 flex justify-center">
+        <app-error-text
+          *ngIf="message !== ''"
+          [message]="message"
+        ></app-error-text>
+      </div>
+
+      <div class="mt-4 flex justify-center">
+        <app-form-button-general
+          [text]="'HOME.SIGNUP'"
+          [disabled]="!valid"
+          (onClickEvent)="onSubmit()"
+        ></app-form-button-general>
+      </div>
+
+<!--      Social Sign in-->
+      <h6 class="mt-5 text-sm text-center">{{'HOME.SIGNIN_WITH' | translate}}</h6>
+      <div class="mt-2.5">
+        <app-icon-social-circle></app-icon-social-circle>
+      </div>
+
+<!--      Already have an account-->
+      <h6 class="mt-3.5 text-sm text-center">
+        {{'HOME.HAS_ACCOUNT' | translate}}
+        <a [routerLink]="['/login']">{{'HOME.SIGNIN' | translate}}</a>
+      </h6>
+
+<!--      Forgot password-->
+      <h6 class="mt-1 text-sm text-center">
+        {{'HOME.FORGOT_PWD' | translate}}
+        <a [routerLink]="['/forgot-password']">{{'HOME.RESTORE' | translate}}</a>
+      </h6>
+    </div>
+  </div>
+  <div class="hidden lg:w-3/6 lg:flex justify-center items-center p-10">
+    <div>
+      <div class="flex justify-center">
+        <img alt="" src="./assets/images/home.svg" class="w-4/5">
+      </div>
+
+<!--      Follow us-->
+      <h6 class="text-sm text-white flex justify-center mt-8">{{'HOME.FOLLOW' | translate}}</h6>
+      <div class="mt-4">
+        <app-icon-social-rounded></app-icon-social-rounded>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  type="square-jelly-box"
+  [fullScreen]="true">
+</ngx-spinner>

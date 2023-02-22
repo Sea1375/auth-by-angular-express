@@ -1,0 +1,22 @@
+.button {
+  height: 44px;
+}
+
+.button::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  background-size: contain;
+}
+
+.button-appstore::before {
+  background: url("/assets/icons/dashboard/appstore.svg") transparent no-repeat 0 0;
+}
+
+.button-googleplay::before {
+  background: url("/assets/icons/dashboard/googleplay.svg") transparent no-repeat 0 0;
+}

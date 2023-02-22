@@ -1,0 +1,20 @@
+<div class="flex">
+
+  <div
+    *ngFor="let option of options"
+    class="flex items-center mr-4"
+  >
+    <label class="block cursor-pointer">
+      <input type="radio"
+             class="hidden"
+             [name]="name"
+             [checked]="option.checked"
+      >
+      <span class="relative pl-6 inline-block text-sm">
+        {{ option.label | translate}}
+      </span>
+    </label>
+
+  </div>
+
+</div>

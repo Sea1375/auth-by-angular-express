@@ -1,0 +1,112 @@
+/*.header-menu-item {*/
+/*  color: var(--color-text-primary);*/
+/*  margin-right: 20px;*/
+/*  flex-shrink: 0;*/
+/*}*/
+
+/*a:hover {*/
+/*  color: var(--color-text-secondary) !important;*/
+/*  text-decoration: none !important;*/
+/*}*/
+
+/*.header-menu-button {*/
+/*  color: var(--color-text-secondary);*/
+/*  margin-right: 20px;*/
+/*  flex-shrink: 0;*/
+/*}*/
+
+
+/*.language-name {*/
+/*  color: var(--color-text-primary);*/
+/*  font-size: 16px;*/
+/*  display: inline-flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.language-name::before {*/
+/*  content: "";*/
+/*  width: 24px;*/
+/*  height: 24px;*/
+/*  margin-right: 8px;*/
+/*}*/
+
+/*.language-en .language-name::before, .language-option-en::before {*/
+/*  background: url("/assets/icons/flag/flag-en.svg") transparent no-repeat;*/
+/*}*/
+/*.language-fr .language-name::before, .language-option-fr::before {*/
+/*  background: url("/assets/icons/flag/flag-fr.svg") transparent no-repeat;*/
+/*}*/
+/*.language-es .language-name::before, .language-option-es::before {*/
+/*  background: url("/assets/icons/flag/flag-es.svg") transparent no-repeat;*/
+/*}*/
+/*.language-de .language-name::before, .language-option-de::before {*/
+/*  background: url("/assets/icons/flag/flag-de.svg") transparent no-repeat;*/
+/*}*/
+/*.language-pt .language-name::before, .language-option-pt::before {*/
+/*  background: url("/assets/icons/flag/flag-pt.svg") transparent no-repeat;*/
+/*}*/
+/*.language-zh .language-name::before, .language-option-zh::before {*/
+/*  background: url("/assets/icons/flag/flag-zh.svg") transparent no-repeat;*/
+/*}*/
+
+/*.language-name::after {*/
+/*  content: "";*/
+/*  width: 9px;*/
+/*  height: 9px;*/
+/*  border-top: 2px solid var(--color-text-primary);*/
+/*  border-right: 2px solid var(--color-text-primary);*/
+/*  display: block;*/
+/*  transform: rotate(135deg);*/
+/*  margin-left: 8px;*/
+/*  margin-top: -2px;*/
+/*}*/
+
+/*.language-expanded .language-name::after {*/
+/*  transform: rotate(-45deg);*/
+/*  margin-top: 6px;*/
+/*}*/
+
+/*.language-options {*/
+/*  position: absolute;*/
+/*  background: #fff;*/
+/*  box-shadow: 0 4px 16px rgb(0 0 0 / 20%);*/
+/*  border-radius: 8px;*/
+/*  display: none;*/
+/*  flex-direction: column;*/
+/*  top: 40px;*/
+/*  padding: 10px 20px 10px 16px;*/
+/*  z-index: 200000;*/
+/*  right: -10px;*/
+/*}*/
+
+/*.language-expanded .language-options {*/
+/*  display: flex;*/
+/*}*/
+
+/*.language-option {*/
+/*  color: #333 !important;*/
+/*  height: 38px;*/
+/*  align-items: center;*/
+/*  justify-content: flex-start;*/
+/*  text-decoration: none;*/
+/*  display: flex;*/
+/*  font-size: 16px;*/
+/*}*/
+
+/*.language-option::before {*/
+/*  content: "";*/
+/*  width: 24px;*/
+/*  height: 24px;*/
+/*  margin-right: 8px;*/
+/*  border: 1px solid #e0e0e0;*/
+/*  border-radius: 24px;*/
+/*}*/
+
+/*a {*/
+/*  cursor: pointer;*/
+/*}*/
+/*a:hover {*/
+/*  text-decoration: underline;*/
+/*}*/

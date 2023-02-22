@@ -1,0 +1,25 @@
+<div class="flex">
+
+<!--  Left sidebar-->
+  <div id="sidebar" class="hidden md:block z-50">
+    <app-sidebar
+      (hideEventEmitter)="onToggle(false)"
+    ></app-sidebar>
+  </div>
+
+<!--  Hamburger icon for mobile responsive-->
+  <div
+    id="toggle"
+    class="absolute top-5 right-5 cursor-pointer block md:hidden z-50"
+    (click)="onToggle(!show)"
+  >
+    <app-general name="hamburger"></app-general>
+  </div>
+
+<!--  Right panel-->
+  <div class="w-full absolute md:relative">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+

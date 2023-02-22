@@ -1,0 +1,6 @@
+input[type=button]:hover {
+  -webkit-transform: scale(1.025);
+  transform: scale(1.025);
+  transition: all 100ms;
+}
+

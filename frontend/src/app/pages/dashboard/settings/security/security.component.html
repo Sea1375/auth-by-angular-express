@@ -1,0 +1,112 @@
+<!--Change Password-->
+<div class="mt-10">
+  <h6 class="text-sm font-bold">{{'HOME.PASSWORD' | translate}}</h6>
+
+  <!--Change Password-->
+  <div class="mt-3 w-96">
+
+    <!--    Old Password-->
+    <div class="mb-2">
+      <app-form-input
+        [type]="'password'"
+        [placeholder]="'DASHBOARD.CURRENT_PASSWORD'"
+        [regx]="appSettings.REGX_FILL"
+        (onChangeEvent)="onChangeCurrentPwd($event)"
+      ></app-form-input>
+    </div>
+
+    <!--    New Password-->
+    <div class="mb-2">
+      <app-form-input
+        [type]="'password'"
+        [placeholder]="'DASHBOARD.NEW_PASSWORD'"
+        [regx]="appSettings.REGX_PWD"
+        (onChangeEvent)="onChangePassword($event)"
+      ></app-form-input>
+    </div>
+
+    <!--    Password Confirm-->
+    <div class="mb-2">
+      <app-form-input
+        [type]="'password'"
+        [placeholder]="'DASHBOARD.NEW_PASSWORD_CONFIRM'"
+        [regx]="appSettings.REGX_PWD"
+        (onChangeEvent)="onChangePasswordConfirm($event)"
+      ></app-form-input>
+    </div>
+
+<!--    Error message-->
+    <div class="mt-3 flex justify-center">
+      <app-error-text
+        *ngIf="changePasswordMsg !== ''"
+        [message]="changePasswordMsg"
+      ></app-error-text>
+    </div>
+
+    <div class="mt-4">
+      <app-form-button-general
+        [disabled]="!valid"
+        [text]="'DASHBOARD.CHANGE_PASSWORD'"
+        (onClickEvent)="onChange()"
+      ></app-form-button-general>
+    </div>
+  </div>
+</div>
+
+<!--2 Factor Authentication-->
+<div class="mt-8">
+  <h6 class="text-sm font-bold">{{'DASHBOARD.G2F' | translate}}</h6>
+  <div
+    class="mt-3"
+  >
+    <app-form-button-general
+      *ngIf="!g2f_enabled"
+      [text]="'DASHBOARD.ENABLE_G2F'"
+      [disabled]="g2f_enabled"
+      (onClickEvent)="onEnable()"
+    >
+    </app-form-button-general>
+
+    <h6
+      *ngIf="g2f_enabled"
+      class="mt-2 ml-2 text-sm text-[#32c682]">
+      {{'DASHBOARD.ALREADY_ENABLED_G2F' | translate}}
+    </h6>
+  </div>
+
+  <!--  Error-->
+  <div
+    *ngIf="message !== '' && !g2f_enabled"
+    class="mt-2"
+  >
+    <app-error-text
+      [message]="message"
+    ></app-error-text>
+  </div>
+</div>
+
+<!--Two Factor Authentication modal-->
+<app-modal-g2f
+  *ngIf="enableModal"
+  [g2f_key]="g2f_key"
+  [qr_url]="qr_url"
+  (enabledEvent)="enabled()"
+  (crossEvent)="crossed()"
+></app-modal-g2f>
+
+<!--Change password modal-->
+<app-modal-send-g2f
+  *ngIf="enableModalChangePassword"
+  [currentPassword]="form.currentPassword"
+  [password]="form.password"
+  [passwordConfirm]="form.passwordConfirm"
+  (crossEvent)="crossedChangePassword()"
+  (changedEvent)="changed()"
+></app-modal-send-g2f>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  type="square-jelly-box"
+  [fullScreen]="true">
+</ngx-spinner>

@@ -1,0 +1,108 @@
+.popup-window {
+  box-shadow: 0 16px 28px rgb(0 0 0 / 32%);
+}
+
+/*.security-google-way {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  margin-top: 25px;*/
+/*  margin-bottom: 50px;*/
+/*}*/
+
+.security-google-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f7f7f5;
+  color: gray;
+  font-weight: bold;
+  border-radius: 100%;
+  position: relative;
+}
+
+.security-google-step.complete, .security-google-step.active {
+  background: #9ccc00;
+  color: #fff;
+}
+
+.security-google-step-label {
+  position: absolute;
+  left: 50%;
+  top: 44px;
+  margin-left: -50px;
+  width: 100px;
+  text-align: center;
+  font-size: 12px !important;
+  line-height: 14px !important;
+  color: #808080 !important;
+  font-weight: normal !important;
+}
+
+.security-google-spacer {
+  width: 80px;
+  height: 2px;
+  background: #d8d8d8;
+  margin: 0 8px;
+}
+
+.security-google-description {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 50px;
+}
+
+.security-google-apps {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 20px 0 60px 0;
+}
+
+.security-google-actions {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.security-google-step.complete::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background: url("/assets/icons/dashboard/complete.svg") #fff no-repeat center center;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 20%), 0 1px 3px rgb(0 0 0 / 10%);
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.security-google-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.security-google-qr {
+  width: 260px;
+  height: 260px;
+}
+
+.security-google-token, .security-google-account {
+  width: 500px;
+}
+
+.security-google-code {
+  width: 200px;
+  margin: 40px auto 10px auto;
+}
+
+.security-google-step.error {
+  background: red;
+  color: #fff;
+}

@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+
+  <input
+    [type]="type"
+    placeholder="{{placeholder | translate}}"
+    class="input-box form-control"
+    formControlName="name"
+    [ngClass]="{'invalid': (name?.invalid && (name?.dirty || name?.touched))}"
+    (ngModelChange)="onChange($event)"
+  >
+
+</form>
+

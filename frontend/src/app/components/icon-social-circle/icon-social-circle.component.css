@@ -1,0 +1,23 @@
+.social-item {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: .25;
+  cursor: pointer;
+}
+
+.social-item:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.social-item-google {
+  background: url("/assets/icons/google.svg") transparent no-repeat 0 0;
+}
+
+.social-item-facebook {
+  background: url("/assets/icons/facebook.svg") transparent no-repeat 0 0;
+}

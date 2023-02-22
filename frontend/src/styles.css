@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input-box {
+    @apply w-full h-10 m-0 px-4 py-0 text-sm rounded-3xl border border-[#32c682];
+  }
+  .button {
+    @apply cursor-pointer text-center;
+  }
+  .modal-overview {
+    @apply fixed z-10 left-0 right-0 top-0 bottom-0 overflow-y-auto flex justify-center items-center;
+  }
+  .modal-background {
+    @apply fixed z-20 left-0 right-0 bottom-0 top-0 bg-black opacity-70;
+  }
+  .modal-body {
+    @apply relative bg-white rounded-md p-8 z-30 overflow-hidden shadow-2xl;
+  }
+}
+
+@font-face {
+  font-family: poppins-bold;
+  src: url("./assets/fonts/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: poppins-light;
+  src: url("./assets/fonts/Poppins-Light.ttf");
+}
+
+@font-face {
+  font-family: poppins-medium;
+  src: url("./assets/fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: poppins-regular;
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: poppins-semibold;
+  src: url("./assets/fonts/Poppins-SemiBold.ttf");
+}
+
+/*CSS Variables*/
+:root {
+  --bg-primary: linear-gradient(36deg, #212d33, #2b3b42);
+  --bg-secondary: linear-gradient(120deg,#fff,#fefefe,#fcfdfc,#fbfbfb,#fafafa,#f9f9f9,#f7f7f7,#f6f6f6,#f5f5f5,#f3f4f3,#f2f2f2,#f1f1f1);
+  --bg-footer: linear-gradient(36deg,#212d33,#2b3b42);
+
+  --color-bg-primary: #2b3b42;
+  --color-bg-secondary: #f8f8f8;
+  --color-bg-footer: #2b3b42;
+
+  --color-text-primary: #1E1E1E;
+  --color-text-secondary: #32c682;
+  --color-text-secondary-hover: #289E68;
+  --color-text-title: #2B3B42;
+  --color-text-des: #6F6F6F;
+  --color-text-copywrite: #515e64;
+
+  --color-error: #FC573b;
+
+  --color-telegram: #28a8e9;
+  --color-twitter: #1da1f2;
+  --color-facebook: #4867aa;
+  --color-linkedin: #0a66c2;
+  --color-youtube: red;
+
+}
+
+h1, h2, h3, h4, h5, h6, a, span, label, div, button {
+  font-family: poppins-regular, sans-serif;
+  color: var(--color-text-primary);
+}
+
+a {
+  transition: color .25s;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input[type=text], input[type=text]:focus, input[type=password], input[type=password]:focus {
+  outline: none;
+  border: 1px solid var(--color-text-secondary);
+  /*border-color: var(--color-text-secondary) !important;*/
+}
+
+div{
+  transition: all 100ms;
+}
+
+.bg-primary {
+  background: var(--bg-primary);
+}
+.bg-secondary {
+  background: var(--bg-secondary);
+}
+
+.bg-text-secondary {
+  background: var(--color-text-secondary);
+  color: white;
+}
+
+.border-rounded-right {
+  border-radius: 4rem/40%;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.border-rounded-bottom {
+  border-radius: 40%/4rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+
+input[type=button]:disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+
+.popup-close::before {
+  transform: rotate(-45deg);
+}
+.popup-close::after {
+  transform: rotate(45deg);
+}
+
+.popup-close::before, .popup-close::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #555;
+  margin-top: 9px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,201 @@
+<div class="modal-overview">
+  <!-- Cover Background-->
+  <div class="modal-background"></div>
+
+  <!--  Modal Body-->
+  <div class="modal-body w-[600px] min-h-[400px]">
+
+    <!--    Close button-->
+    <div class="absolute top-8 right-8 opacity-50 w-5 h-5 bg-transparent cursor-pointer popup-close"
+         (click)="cross()"
+    ></div>
+
+    <!--   Popup Title-->
+    <div class="font-bold flex justify-start items-center">
+      <span class="text-base">{{'DASHBOARD.ENABLE_G2F' | translate}}</span>
+    </div>
+
+    <!--    Popup Body-->
+    <div class="mt-5">
+
+<!--      Steps-->
+      <div class="flex justify-center items-center mt-6 mb-12">
+        <div
+          id="step1"
+          class="security-google-step"
+          [ngClass]="{'active' : step >= 1}"
+        >
+          <span>1</span>
+          <span class="security-google-step-label">{{'DASHBOARD.DOWNLOAD_APP' | translate}}</span>
+        </div>
+        <div class="security-google-spacer"></div>
+        <div
+          id="step2"
+          class="security-google-step"
+          [ngClass]="{'active' : step >= 2}"
+        >
+          <span>2</span>
+          <span class="security-google-step-label">{{'DASHBOARD.SCAN_QR_CODE' | translate}}</span>
+        </div>
+        <div class="security-google-spacer"></div>
+        <div
+          id="step3"
+          class="security-google-step"
+          [ngClass]="{'active' : step >= 3}"
+        >
+          <span>3</span>
+          <span class="security-google-step-label">{{'DASHBOARD.SAVE_BACKUP_KEY' | translate}}</span>
+        </div>
+        <div class="security-google-spacer"></div>
+        <div
+          id="step4"
+          class="security-google-step"
+          [ngClass]="{'active' : step >= 4}"
+        >
+          <span>4</span>
+          <span class="security-google-step-label">{{'DASHBOARD.ENABLE' | translate}}</span>
+        </div>
+      </div>
+
+<!--      Download Authentication app-->
+      <div class="security-google-body" *ngIf="step === 1">
+
+        <div class="security-google-description">{{'DASHBOARD.DOWNLOAD' | translate}}</div>
+
+        <div class="security-google-apps">
+          <div class="mx-2.5">
+            <app-form-button-outline-icon
+              [text]="'DASHBOARD.APP_STORE'"
+              [icon]="'appstore.svg'"
+              (onClickEvent)="openNewTab(settings.G2F_APPSTORE)"
+            >
+            </app-form-button-outline-icon>
+          </div>
+          <div class="mx-2.5">
+            <app-form-button-outline-icon
+              [text]="'DASHBOARD.GOOGLE_PLAY'"
+              [icon]="'googleplay.svg'"
+              (onClickEvent)="openNewTab(settings.G2F_ANDROID)"
+            >
+            </app-form-button-outline-icon>
+          </div>
+        </div>
+
+        <div class="security-google-actions">
+          <app-form-button-general
+            [text]="'DASHBOARD.NEXT'"
+            (onClickEvent)="next(2)"
+          ></app-form-button-general>
+        </div>
+
+      </div>
+
+<!--      Show QR Code and private key-->
+      <div class="security-google-body" *ngIf="step === 2">
+
+        <div class="security-google-description">{{'DASHBOARD.SCAN' | translate}}</div>
+
+        <div class="security-google-info">
+
+<!--          QR Code-->
+          <img
+            class="security-google-qr"
+            [src]="qr_url"
+            data-xblocker="passed"
+            alt="QR"
+          >
+
+<!--          User email address-->
+          <div class="security-google-account mt-2">
+            <app-form-input-sm
+              [text]="'DASHBOARD.ACCOUNT'"
+              [value]="email"
+            >
+            </app-form-input-sm>
+          </div>
+
+<!--          Private key-->
+          <div class="security-google-token mt-2">
+            <app-form-input-sm
+              [text]="'DASHBOARD.KEY'"
+              [value]="g2f_key"
+            >
+            </app-form-input-sm>
+          </div>
+
+        </div>
+
+        <div class="security-google-actions">
+          <app-form-button-general
+            [text]="'DASHBOARD.NEXT'"
+            (onClickEvent)="next(3)"
+          ></app-form-button-general>
+        </div>
+
+      </div>
+
+<!--      Confirm backup-->
+      <div class="security-google-body" *ngIf="step === 3">
+
+        <div class="security-google-description">{{'DASHBOARD.BACKUP' | translate}}</div>
+
+        <div class="security-google-info">
+          <div class="security-google-account mt-2">
+            <app-form-input-sm
+              [text]="''"
+              [value]="g2f_key"
+            >
+            </app-form-input-sm>
+          </div>
+        </div>
+
+        <div class="security-google-actions">
+          <app-form-button-general
+            [text]="'DASHBOARD.NEXT'"
+            (onClickEvent)="next(4)"
+          ></app-form-button-general>
+        </div>
+      </div>
+
+<!--      Test authentication and enable-->
+      <div class="security-google-body" *ngIf="step === 4">
+
+        <div class="security-google-description">{{'DASHBOARD.ENABLE_G2F_DES' | translate}}</div>
+
+        <div class="security-google-code">
+
+          <app-form-input
+            [type]="'text'"
+            [placeholder]="'••••••'"
+            [regx]="settings.REGX_OTP"
+            (onChangeEvent)="onChangeCode($event)"
+          >
+          </app-form-input>
+
+          <app-error-text
+            *ngIf="message !== ''"
+            [message]="message"
+          >
+          </app-error-text>
+
+        </div>
+
+        <div class="security-google-actions">
+          <app-form-button-general
+            [disabled]="!valid"
+            [text]="'DASHBOARD.ENABLE'"
+            (onClickEvent)="enableG2F()"
+          ></app-form-button-general>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  type="square-jelly-box"
+  [fullScreen]="true">
+</ngx-spinner>

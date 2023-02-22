@@ -1,0 +1,36 @@
+
+.sections-tabs {
+  border-bottom: 1px solid #cecece;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-left: -40px;
+  margin-right: -40px;
+  padding: 0 40px;
+}
+
+.sections-tab {
+  margin-bottom: -1px;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid #cecece;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-top: 1px solid transparent;
+  text-decoration: none;
+}
+
+.sections-tab-selected {
+  border-right: 1px solid #cecece;
+  border-left: 1px solid #cecece;
+  border-top: 1px solid #cecece;
+  border-bottom: 1px solid #fff;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  pointer-events: none;
+  line-height: 38px;
+}

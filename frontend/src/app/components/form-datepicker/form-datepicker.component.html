@@ -1,0 +1,109 @@
+<div class="relative">
+<!--  input box for calendar-->
+  <div (click)="onShow()">
+    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+      <app-general name="calendar"></app-general>
+    </div>
+    <input type="text"
+           class="text-sm rounded-3xl block w-full pl-10 p-2.5"
+           placeholder="Select date"
+           [ngModel]="value"
+    >
+  </div>
+
+<!--  Calendar panel-->
+  <div
+    id="calendar"
+    class="absolute top-9 left-0 z-50 pt-2 active hidden">
+    <div class="inline-block rounded-lg bg-white dark:bg-gray-700 shadow-lg p-4">
+      <!--    Datepicker header-->
+      <div>
+        <div class="flex justify-between mb-2">
+          <button
+            class="bg-white hover:bg-gray-100 rounded-lg p-2.5"
+            (click)="previousMonth()"
+          >
+            <app-general name="arrow_left"></app-general>
+          </button>
+          <button
+            class="text-sm font-bold rounded-lg bg-white py-2.5 px-5 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200"
+            (click)="upper()"
+          >
+            <div *ngIf="status === 0">
+              {{ settings.months[current.month] }}&nbsp;{{ current.year }}
+            </div>
+            <div *ngIf="status === 1">{{ current.year }}</div>
+            <div *ngIf="status === 2">
+              {{this.years[0]}}-{{this.years[11]}}
+            </div>
+          </button>
+          <button
+            class="bg-white hover:bg-gray-100 rounded-lg p-2.5"
+            (click)="nextMonth()"
+          >
+            <app-general name="arrow_right"></app-general>
+          </button>
+        </div>
+      </div>
+
+<!--      Datepicker body-->
+
+<!--      select date-->
+      <div *ngIf="status === 0" class="p-1">
+
+        <div class="days-of-week grid grid-cols-7 mb-1">
+        <span
+          *ngFor="let day of settings.dayOfWeek"
+          class="text-center h-6 leading-6 text-sm"
+        >
+          {{ day }}
+        </span>
+        </div>
+
+        <div class="w-64 grid grid-cols-7">
+        <span
+          *ngFor="let day of datesStack"
+          class="hover:bg-gray-100 hover:text-gray-400 block flex-1 leading-9 border-0 rounded-full cursor-pointer text-center text-sm bg-text-secondary select-none"
+          [ngClass]="{
+            'font-bold': day.mark === 'current',
+            'bg-text-secondary': day.year === date.year && day.month === date.month && day.date === date.date
+          }"
+          (click)="onSelect(day)"
+        >
+          {{ day.date }}
+        </span>
+        </div>
+      </div>
+
+<!--      select month-->
+      <div *ngIf="status === 1" class="p-1">
+        <div class="flex w-64 grid grid-cols-4">
+        <span
+          *ngFor="let month of settings.shortMonths; let i = index"
+          class="hover:bg-gray-100 block flex-1 leading-9 border-0 rounded-lg cursor-pointer text-center text-sm"
+          [ngClass]="{'bg-text-secondary': i === current.month}"
+          (click)="selectMonth(i)"
+        >
+          {{ month }}
+        </span>
+        </div>
+      </div>
+
+<!--      select year-->
+      <div *ngIf="status === 2" class="p-1">
+        <div class="flex w-64 grid grid-cols-4">
+        <span
+          *ngFor="let year of years;"
+          class="hover:bg-gray-100 block flex-1 leading-9 border-0 rounded-lg cursor-pointer text-center text-sm"
+          [ngClass]="{'bg-text-secondary': year === current.year}"
+          (click)="selectYear(year)"
+        >
+          {{ year }}
+        </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,195 @@
+<div class="w-full min-h-screen p-10 overflow-y-scroll overflow-x-hidden bg-secondary">
+
+  <!--  Title-->
+  <div class="flex items-end">
+    <div class="basis-full overflow-hidden">
+      <div class="mt-3 text-xl">
+        {{'DASHBOARD.KYC_VERIFICATION' | translate}}
+      </div>
+      <div class="mt-1 text-sm">
+        {{'DASHBOARD.VERITY_IDENTITY' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10">
+    <h3 class="text-sm font-bold">{{'DASHBOARD.BASIC_INFO' | translate}}</h3>
+
+    <!--    Firstname, Middle name, Last name-->
+    <div class="mt-4 grid grid-cols-12 gap-2 flex items-center">
+      <div class="col-span-2 md:col-span-4 lg:col-span-2">
+        <label class="text-sm">
+          {{ 'DASHBOARD.NAME' | translate }}
+        </label>
+      </div>
+      <div class="col-span-10 md:col-span-8 lg:col-span-10 grid grid-cols-12 gap-2">
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.FIRST_NAME"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeFirstname($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.MIDDLE_NAME"
+            [regx]="settings.REGX_OPTIONAL"
+            (onChangeEvent)="onChangeMiddlename($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.LAST_NAME"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeLastname($event)"
+          ></app-form-input>
+        </div>
+      </div>
+
+    </div>
+
+    <!--    Gender -->
+    <div class="mt-4 grid grid-cols-12 gap-2 flex items-center">
+      <div class="col-span-2 md:col-span-4 lg:col-span-2">
+        <label class="text-sm">
+          {{ 'DASHBOARD.GENDER' | translate }}
+        </label>
+      </div>
+      <div class="col-span-10 md:col-span-8 lg:col-span-10">
+        <app-form-radios
+          [options]="genders"
+          name="gender"
+        ></app-form-radios>
+      </div>
+    </div>
+
+    <!--  Birthday-->
+    <div class="mt-4 grid grid-cols-12 gap-2 flex items-center">
+      <div class="col-span-2 md:col-span-4 lg:col-span-2">
+        <label class="text-sm">
+          {{ 'DASHBOARD.DATE_OF_BIRTH' | translate }}
+        </label>
+      </div>
+      <div class="col-span-10 md:col-span-8 lg:col-span-10 max-w-[270px]">
+        <app-form-datepicker
+          placeholder="DASHBOARD.SELECT_DATE"
+          (onSelectEvent)="onChangeBirthday($event)"
+        ></app-form-datepicker>
+      </div>
+    </div>
+
+    <!--  Address-->
+    <div class="mt-4 grid grid-cols-12 gap-2 flex items-center">
+      <div class="col-span-2 md:col-span-4 lg:col-span-2">
+        <label class="text-sm">
+          {{ 'DASHBOARD.ADDRESS' | translate }}
+        </label>
+      </div>
+
+      <!--      Street-->
+      <div class="col-span-10 md:col-span-8 lg:col-span-10 grid grid-cols-12 gap-2">
+        <div class="col-span-12 2xl:col-span-3">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.BUILDING_NUMBER"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeBuildingNumber($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 2xl:col-span-3">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.UNIT_NUMBER"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeUnitNumber($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 2xl:col-span-3">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.STREET_NAME"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeStreetName($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 2xl:col-span-3">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.STREET_TYPE"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeStreetType($event)"
+          ></app-form-input>
+        </div>
+
+        <!--    City -->
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.CITY"
+            [regx]="settings.REGX_OPTIONAL"
+            (onChangeEvent)="onChangeCity($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.SUBURB"
+            [regx]="settings.REGX_OPTIONAL"
+            (onChangeEvent)="onChangeSuburb($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.COUNTY"
+            [regx]="settings.REGX_OPTIONAL"
+            (onChangeEvent)="onChangeCounty($event)"
+          ></app-form-input>
+        </div>
+
+        <!--    State -->
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.STATE"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeState($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.COUNTRY"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangeCountry($event)"
+          ></app-form-input>
+        </div>
+        <div class="col-span-12 sm:col-span-4 md:col-span-12 lg:col-span-4">
+          <app-form-input
+            type="text"
+            placeholder="DASHBOARD.POSTAL_CODE"
+            [regx]="settings.REGX_FILL"
+            (onChangeEvent)="onChangePostalCode($event)"
+          ></app-form-input>
+        </div>
+      </div>
+
+    </div>
+
+<!--    Contact-->
+    <div class="mt-4 grid grid-cols-12 gap-2 flex items-center">
+      <div class="col-span-2 md:col-span-4 lg:col-span-2">
+        <label class="text-sm">
+          {{ 'DASHBOARD.CONTACT' | translate }}
+        </label>
+      </div>
+      <div class="col-span-10 md:col-span-8 lg:col-span-10 grid grid-cols-2">
+<!--        <app-form-input-telephone></app-form-input-telephone>-->
+      </div>
+    </div>
+  </div>
+
+</div>

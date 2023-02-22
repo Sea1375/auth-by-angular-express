@@ -1,0 +1,41 @@
+<div class="modal-overview">
+  <div class="modal-background"></div>
+  <div class="modal-body w-[400px]">
+    <!--    Close button-->
+    <div class="absolute top-4 right-4 opacity-50 w-5 h-5 bg-transparent cursor-pointer popup-close"
+         (click)="cross()"
+    ></div>
+
+    <!--   Popup Title-->
+    <div class="font-bold flex justify-start items-center">
+      <span class="text-base">{{'HOME.OTP' | translate}}</span>
+    </div>
+
+    <!--    G2F code-->
+    <div class="mt-5 flex justify-center">
+      <app-form-input
+        [type]="'text'"
+        [placeholder]="'••••••'"
+        [regx]="settings.REGX_OTP"
+        (onChangeEvent)="onChangeG2F($event)"
+      ></app-form-input>
+    </div>
+
+    <div *ngIf="message !== ''"
+         class="mt-2"
+    >
+      <app-error-text
+        [message]="message"
+      ></app-error-text>
+    </div>
+
+    <div class="mt-3 flex justify-center">
+      <app-form-button-general
+        [disabled]="!valid"
+        [text]="'HOME.SEND'"
+        (onClickEvent)="onChange()"
+      ></app-form-button-general>
+    </div>
+
+  </div>
+</div>

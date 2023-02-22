@@ -1,0 +1,24 @@
+.textinput {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.textinput-label {
+  font-size: 14px;
+  color: #333;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.textinput-input {
+  height: 30px;
+  font-size: 14px;
+  background: #f0f0f0;
+  margin-top: 2px;
+  line-height: 22px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 16px;
+  outline: 0;
+}

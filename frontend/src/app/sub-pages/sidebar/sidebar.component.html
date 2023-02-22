@@ -1,0 +1,32 @@
+<div class="relative flex flex-col flex-shrink-0 w-[300px] h-full min-h-screen p-8 bg-primary">
+  <a [routerLink]="['/']"
+     class="mt-5 text-3xl">
+    G2GN
+  </a>
+
+  <div class="mt-12 ml-[-40px]">
+    <div *ngFor="let item of items">
+      <a
+        [id]="item.id"
+        class="flex items-center pl-10 pr-2.5 h-10 cursor-pointer rounded-tr-[38px] rounded-br-[38px] menu-item"
+        [ngClass]="{'menu-item-selected' : url.includes(item.id) === true}"
+        (click)="onSelectedItem(item.id)"
+        [routerLink]="[item.link]"
+      >
+        <app-general [name]="item.icon"></app-general>
+        <span class="menu-label pl-3">
+          {{item.text | translate}}
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="menu mt-6 ml-[-40px]">
+    <a class="flex items-center pl-10 pr-2.5 h-10 cursor-pointer rounded-tr-[38px] rounded-br-[38px] menu-item"
+          (click)="logout()"
+    >
+      <app-general name="logout"></app-general>
+      <span class="menu-label pl-3">{{'HOME.LOGOUT' | translate}}</span>
+    </a>
+  </div>
+</div>

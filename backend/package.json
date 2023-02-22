@@ -1,0 +1,39 @@
+{
+  "name": "g2gn",
+  "version": "1.0.0",
+  "description": "Rest APIs for LearnWorlds",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sea1375/g2gn_node.git"
+  },
+  "keywords": [
+    "G2GN",
+    "CRM",
+    "LearnWorlds"
+  ],
+  "author": "Amine Boukh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sea1375/g2gn_node/issues"
+  },
+  "homepage": "https://github.com/Sea1375/g2gn_node#readme",
+  "dependencies": {
+    "@types/qrcode": "^1.5.0",
+    "@types/speakeasy": "^2.0.7",
+    "async": "^3.2.4",
+    "axios": "^1.3.2",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "qrcode": "^1.5.1",
+    "randomstring": "^1.2.3",
+    "speakeasy": "^2.0.0"
+  }
+}

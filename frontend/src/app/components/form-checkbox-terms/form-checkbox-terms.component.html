@@ -1,0 +1,19 @@
+<div class="relative block min-h-[26px] checkbox">
+  <input
+    type="checkbox"
+    [checked]="checked"
+    class="absolute left-0 w-5 h-5 hidden"
+  >
+  <label
+    (click)="onCheck()"
+    class="relative flex items-center pl-8"
+  >
+    <div class="text-sm">
+      <span>{{'HOME.AGREEMENT_AGREE' | translate}}</span>&nbsp;
+      <a class="text-center">{{'HOME.AGREEMENT_TERMS_OF_USE' | translate}}</a>&nbsp;
+      <span>{{'HOME.AGREEMENT_ACCEPT' | translate}}</span>&nbsp;
+      <a class="text-general">{{'HOME.AGREEMENT_POLICY' | translate}}</a>
+    </div>
+  </label>
+</div>
+

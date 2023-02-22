@@ -1,0 +1,81 @@
+<nav class="bg-secondary px-2 sm:px-4 py-2.5 rounded">
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+
+    <!--    Logo-->
+    <a [routerLink]="'/'" class="flex items-center">
+      <app-logo></app-logo>
+      <a class="text-xl font-semibold whitespace-nowrap pl-1">G2GN</a>
+    </a>
+
+    <div class="flex items-center md:order-2">
+      <button type="button" data-dropdown-toggle="language-dropdown-menu"
+              class="inline-flex justify-center items-center p-2 text-sm cursor-pointer">
+        <app-flag flag="en" size="md"></app-flag>
+        {{'LANGS.EN' | translate}}
+      </button>
+
+      <!-- Dropdown -->
+      <div
+        class="absolute m-0 z-50 my-4 text-base bg-white rounded shadow hidden"
+        id="language-dropdown-menu"
+        style="inset: 0 auto auto 0; transform: translate(calc(100vw - 150px), 78px);"
+        data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
+        <ul class="py-1" role="none">
+          <li *ngFor="let lang of languages">
+            <a href="#"
+               class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+               role="menuitem">
+              <div class="inline-flex items-center">
+                <app-flag [flag]="lang.flag" size="sm"></app-flag>
+                {{lang.text | translate}}
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <button data-collapse-toggle="mobile-menu-language-select" type="button"
+              class="inline-flex items-center p-2 ml-1 text-sm rounded-lg md:hidden"
+              aria-controls="mobile-menu-language-select" aria-expanded="true"
+              (click)="toggleMobileMenu()"
+      >
+        <span class="sr-only">Open main menu</span>
+        <app-general name="hamburger"></app-general>
+      </button>
+    </div>
+
+    <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+         id="mobile-menu-language-select">
+      <ul
+        class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+        <li *ngFor="let item of items">
+          <a [routerLink]="item.routerLink"
+             class="block py-2 pr-4 pl-3 rounded bg-transparent md:p-0"
+             aria-current="page">{{item.text | translate}}</a>
+        </li>
+
+        <li>
+          <a *ngIf="!isLoggedIn" [routerLink]="['/login']"
+             class="block py-2 pr-4 pl-3 rounded bg-transparent md:p-0"
+          >
+            {{'HOME.SIGNIN' | translate}}
+          </a>
+        </li>
+        <li>
+          <a *ngIf="!isLoggedIn" [routerLink]="['/register']"
+             class="block py-2 pr-4 pl-3 rounded bg-transparent md:p-0"
+          >
+            {{'HOME.SIGNUP' | translate}}
+          </a>
+        </li>
+        <li>
+          <a *ngIf="isLoggedIn" (click)="onLogout()"
+             class="block py-2 pr-4 pl-3 rounded bg-transparent md:p-0"
+          >
+            {{'HOME.LOGOUT' | translate}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

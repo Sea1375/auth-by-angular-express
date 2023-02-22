@@ -1,0 +1,38 @@
+.menu-item {
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background: var(--color-bg-footer);
+}
+
+.menu-item-selected {
+  background: #1E2C30;
+  pointer-events: inherit;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.menu-label-long {
+  flex-basis: 100%;
+}
+
+.menu-label {
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-shield {
+  flex-shrink: 0;
+  opacity: .25;
+  cursor: help;
+}
+
